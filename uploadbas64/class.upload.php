@@ -34,24 +34,7 @@ class upload extends dbh
 			
 		}
 	}
-	public function getImage1($data)
-	{
-		$this->file_name=$_FILES[$data]['name'];
-		$this->file_dir=$_FILES[$data]['tmp_name'];
-		$this->file_size=$_FILES[$data]['size'];
-		$this->file_extension=strtolower(pathinfo($this->file_name, PATHINFO_EXTENSION));
-		$this->file_valid=array('jpg','jpeg','png');
-		$this->file_destinasi='image/';
-		$this->file_item=rand(100, 10000).".".$this->file_extension;
-	}
-	public function getUpload($file_name, $file_destinasi, $file_item)
-	{
-		if(move_uploaded_file($file_name, $file_destinasi.$file_item)):
-			return true;
-		else:
-			return false;
-		endif;
-	}
+
 	public function uploadBase64($data)
 	//method 1
 	{
@@ -78,6 +61,7 @@ class upload extends dbh
 	}
 	public function getImage2($data)
 	{
+		//method 2
 		# Get information
 		$this->file_name=$_FILES[$data]['name'];
 		$this->file_tmp=$_FILES[$data]['tmp_name'];
